@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(ros2_cpp_template)
+project(orai_feladat)
 
 # Default to C++14
 if(NOT CMAKE_CXX_STANDARD)
@@ -24,11 +24,14 @@ set(ament_dependencies
 # add_executable(simple_sub_node src/print_pose.cpp)
 # ament_target_dependencies(simple_sub_node ${ament_dependencies} )
 
+add_executable(simple_sub_node src/print_pose.cpp)
+ament_target_dependencies(simple_sub_node rclcpp geometry_msgs)
+
 install(DIRECTORY launch
   DESTINATION share/${PROJECT_NAME})
 
 install(TARGETS
-# simple_sub_node
+  simple_sub_node
 DESTINATION lib/${PROJECT_NAME})
 
 ament_package()
